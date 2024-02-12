@@ -4,18 +4,21 @@
  */
 package sample;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import java.util.concurrent.TimeoutException;
 
 /**
  *
  * @author jroddom0103
  */
-public class UtilsTest {
+public class UtilsJUnit3Test {
     
-    public UtilsTest() {
+    public UtilsJUnit3Test() {
     }
     
     @BeforeAll
@@ -24,6 +27,14 @@ public class UtilsTest {
     
     @AfterAll
     public static void tearDownClass() {
+    }
+    
+    @BeforeEach
+    public void setUp() {
+    }
+    
+    @AfterEach
+    public void tearDown() {
     }
 
     /**
@@ -62,4 +73,26 @@ public class UtilsTest {
         assertEquals(expResult, result);
     }
     
+    @Test
+     public void testHelloWorld() {
+        System.out.println("* UtilsJUnit3Test: test method 1 - testHelloWorld()");
+        assertEquals("Hello, world!", Utils.concatWords("Hello", ", ", "world", "!"));
+    }
+     
+    @Test 
+    public void testWithTimeout() throws InterruptedException, TimeoutException { final int
+        factorialOf = 1 + (int) (30000 * Math.random());
+        System.out.println("informática" + factorialOf + '!');
+        Thread testThread = new Thread() {
+            public void run() {
+                System.out.println(factorialOf + "! = " + Utils.computeFactorial(factorialOf));
+            }     
+        };
+        testThread.start();
+        Thread.sleep(10000000);
+        testThread.interrupt();
+        if (testThread.isInterrupted()) {
+        throw new TimeoutException("the test took too long to complete");
+        }    
+    }
 }

@@ -8,7 +8,7 @@ package sample;
 /**
  * Sample utility class for vector algebra.
  *
- * @author  jroddom0103
+ * @author  nb
  */
 public final class Vectors {
 
@@ -16,9 +16,6 @@ public final class Vectors {
 
     /**
      * Checks whether the given vectors are equal.
-     * @param a
-     * @param b
-     * @return 
      */
     public static boolean equal(int[] a, int[] b) {
         if ((a == null) || (b == null)) {
@@ -40,9 +37,6 @@ public final class Vectors {
 
     /**
      * Scalar multiplication of given vectors.
-     * @param a
-     * @param b
-     * @return
      */
     public static int scalarMultiplication(int[] a, int[] b) {
         if ((a == null) || (b == null)) {

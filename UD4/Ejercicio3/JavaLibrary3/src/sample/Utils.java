@@ -5,13 +5,12 @@
 
 package sample;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.math.BigInteger;
 
 /**
  *
- * @author  jroddom0103
+ * @author  nb
  */
 public class Utils {
 
@@ -65,7 +64,7 @@ public class Utils {
                 }
             }
             return (String) methodNormalize.invoke(null, word, nfcNormalization);
-        } catch (ClassNotFoundException | IllegalAccessException | IllegalArgumentException | NoSuchMethodException | SecurityException | InvocationTargetException ex) {
+        } catch (Exception ex) {
             return null;
         }
     }
